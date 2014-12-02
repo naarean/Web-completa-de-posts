@@ -21,7 +21,7 @@
   </div>
     <?php include("../inc/menu.php"); ?>
   <div id="leftt">
-	 <div id="section_l">
+   <div id="section_l">
     Error de acceso, <a href="login.php">volver a intentarlo</a>
    </div>
   </div>
