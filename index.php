@@ -7,6 +7,7 @@
 <title>Pagina web php, ajax y jquery</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+<script src="jquery.min.js"></script>
 <!-- <link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'> -->
 </head>
 
@@ -33,10 +34,20 @@
     <?php include("inc/tags.php"); ?>
   </div>
 </div>
+
+<script>
+  $(document).ready(function(){
+    $("irArriba").click(funtion({
+      $("html, body").animate((scrollTop:0), 500);
+      return false;
+    }));
+  });
+</script>
 <div id="footer">
   <div id="txt_fo">
     <a href="#">Pagina1</a> <a href="#">Pagina2</a> <a href="#">Pagina3</a> <a href="#">Pagina4</a>
   </div>
+  <div class="irArriba"><a href="" id="irArriba">Subir Arriba</a></div>
 </div>
 </body>
 </html>

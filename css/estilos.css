@@ -211,3 +211,9 @@ a:hover {
 	font-weight: bold;
 	font-family:helvetica,arial,sans-serif;
 }
+
+.irArriba{
+	float: right;
+	margin-top: -18px;
+	margin-right: 10px;
+}
