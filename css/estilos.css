@@ -230,3 +230,10 @@ a:hover {
 	border: 5px solid #50ACC9;
 	border-radius: 4px;
 }
+
+#container{
+	padding: 8px;
+	font-size: 14px;
+	word-wrap: break-word;  /*para que no se salga el texto del contenedor*/
+	width: 500px;
+}
