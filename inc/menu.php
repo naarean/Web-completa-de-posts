@@ -15,7 +15,7 @@
 		}
 		else  //si la sesión no está iniciada, menu público
 		{ ?>
-			<div id="item_op"><a href="<?php echo $urlWeb ?>user/login.php">Iniciar sesi&oacute;n</a></div>
+			<div id="item_op"><a href="#" onClick="mostrar_capa_login();">Iniciar sesi&oacute;n</a></div> <!-- con la almuadilla impide la recarga de la página -->
 			<div id="item_op"><a href="<?php echo $urlWeb ?>user/resgistro.php">Registro</a></div>
 		<?php 
 		} ?>

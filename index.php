@@ -8,6 +8,7 @@
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
 <script src="jquery.min.js"></script>
+<script src="js.js"></script>
 <!-- <link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'> -->
 </head>
 
@@ -35,19 +36,36 @@
   </div>
 </div>
 
-<script>
-  $(document).ready(function(){
-    $("irArriba").click(funtion({
-      $("html, body").animate((scrollTop:0), 500);
-      return false;
-    }));
-  });
-</script>
 <div id="footer">
   <div id="txt_fo">
     <a href="#">Pagina1</a> <a href="#">Pagina2</a> <a href="#">Pagina3</a> <a href="#">Pagina4</a>
   </div>
   <div class="irArriba"><a href="" id="irArriba">Subir Arriba</a></div>
 </div>
+
+<div id="flotanteLogin" style="display:none">
+  <div id="section_l">
+    <form action="<?php echo $urlWeb ?>inc/iniciar-sesion.php" method="POST" name="formLogin">
+      <table border="0" width="281" align="center">
+        <tr>
+          <td>Usuario:</td>
+          <td><label for="nombre"></label>
+            <input name="nombre" type="text" id="nombre" size="30" /></td>
+          </tr>
+        <tr>
+          <td>Contrase&ntilde;a:</td>
+          <td><label for="password"></label>
+            <input name="password" type="text" id="password" size="30" /></td>
+          </tr>
+        <tr>
+          <td>&nbsp;</td>
+          <td align="right"><input type="submit" name="button2" id="button2" value="Iniciar Sesi&oacute;n" /></td>
+        </tr>
+      </table>
+    </form>
+    <a onClick="cerrar_capa_login();" style="cursor:pointer">Cerrar</a>
+  </div>
+</div>
+
 </body>
 </html>

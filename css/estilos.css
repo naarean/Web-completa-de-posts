@@ -217,3 +217,16 @@ a:hover {
 	margin-top: -18px;
 	margin-right: 10px;
 }
+
+#flotanteLogin {
+	z-index: 1000;
+	padding: 18px;
+	top: 71.75px;
+	left: 339.5px;
+	position: fixed;
+	width: 600px;
+	max-height: 682px;
+	background-color: #fff;
+	border: 5px solid #50ACC9;
+	border-radius: 4px;
+}
