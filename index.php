@@ -46,9 +46,9 @@
 <div id="flotanteLogin" style="display:none">
   <div id="section_l">
     <form action="<?php echo $urlWeb ?>inc/iniciar-sesion.php" method="POST" name="formLogin">
-      <table border="0" width="281" align="center">
+      <table border="0" width="350" align="center">
         <tr>
-          <td>Usuario:</td>
+          <td>Usuario o email:</td>
           <td><label for="nombre"></label>
             <input name="nombre" type="text" id="nombre" size="30" /></td>
           </tr>

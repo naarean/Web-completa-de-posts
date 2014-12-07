@@ -2,6 +2,11 @@
 
 require_once('../Connections/conexion.php');
 
+if (isset($_SESSION['MM_Id']))  //si ya ha iniciado sesión no ha de entrar a login.php asi que le sacamos
+{
+  header("Location: " . $urlWeb); 
+}
+
 
 $editFormAction = $_SERVER['PHP_SELF'];
 if (isset($_SERVER['QUERY_STRING'])) {
@@ -9,15 +14,16 @@ if (isset($_SERVER['QUERY_STRING'])) {
 }
 
 if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
-  $insertSQL = sprintf("INSERT INTO z_users (nombre, password, rango) VALUES (%s, %s, %s)",
+  $insertSQL = sprintf("INSERT INTO z_users (nombre, email, password, rango) VALUES (%s, %s, %s, %s)",
                        GetSQLValueString($_POST['nombre'], "text"),
+                       GetSQLValueString($_POST['email'], "text"),
                        GetSQLValueString($_POST['password'], "text"),
                        GetSQLValueString(1, "int")); //queremos que al añadir usuario no sea baneado, por ello rango=1
 
   mysql_select_db($database_conexion, $conexion);
   $Result1 = mysql_query($insertSQL, $conexion) or die(mysql_error());
 
-  $insertGoTo = "login.php";
+  $insertGoTo = "../index.php";
   if (isset($_SERVER['QUERY_STRING'])) {
     $insertGoTo .= (strpos($insertGoTo, '?')) ? "&" : "?";
     $insertGoTo .= $_SERVER['QUERY_STRING'];
@@ -54,6 +60,10 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
             <tr valign="baseline">
               <td nowrap="nowrap" align="right">Nombre:</td>
               <td><input type="text" name="nombre" value="" size="32" /></td>
+            </tr>
+            <tr valign="baseline">
+              <td nowrap="nowrap" align="right">Email:</td>
+              <td><input type="text" name="email" value="" size="32" /></td>
             </tr>
             <tr valign="baseline">
               <td nowrap="nowrap" align="right">Password:</td>

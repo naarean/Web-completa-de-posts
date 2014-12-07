@@ -1,5 +1,5 @@
-<?php require_once('../Connections/conexion.php'); 
-
+<?php require_once('../Connections/conexion.php'); //ESTA PÁGINA VIENE DESDE INDEX.PHP
+//permite el inicio de sesión por usuario o email + contraseña
 
 $loginFormAction = $_SERVER['PHP_SELF'];
 if (isset($_GET['accesscheck'])) {
@@ -15,8 +15,10 @@ if (isset($_POST['nombre'])) {
   $MM_redirecttoReferrer = false;
   mysql_select_db($database_conexion, $conexion);
   
-  $LoginRS__query=sprintf("SELECT nombre, password, id, rango FROM z_users WHERE nombre=%s AND password=%s AND rango>0", //rango 0 estan baneados, el resto pueden entrar
-    GetSQLValueString($loginUsername, "text"), GetSQLValueString($password, "text")); 
+  $LoginRS__query=sprintf("SELECT nombre, password, id, rango FROM z_users WHERE nombre=%s OR email=%s AND password=%s AND rango>0", //rango 0 estan baneados, el resto pueden entrar
+                          GetSQLValueString($loginUsername, "text"),  //puede meter en el mismo campo nombre o email
+                          GetSQLValueString($loginUsername, "text"),  //puede meter en el mismo campo nombre o email
+                          GetSQLValueString($password, "text")); 
    
   $LoginRS = mysql_query($LoginRS__query, $conexion) or die(mysql_error());
   $row_ObtenerIdUser = mysql_fetch_assoc($LoginRS);
