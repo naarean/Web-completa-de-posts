@@ -1,8 +1,19 @@
-<?php require_once('Connections/conexion.php'); 
+<?php require_once('Connections/conexion.php'); //ESTA PÁGINA ACTUALIZA EL CONTADOR DE VISITAS AL POST Y LUEGO MUESTRA EL POST
 
 $iddelpost = $_GET['postnumero']; // lo recoge de listado.php
 
+
+//actualizamos el contador de visitas
+$updateSQL = sprintf("UPDATE z_posts SET visitas=visitas +1 WHERE id=%s",
+                     GetSQLValueString($iddelpost, "int"));
+
 mysql_select_db($database_conexion, $conexion);
+$Result1 = mysql_query($updateSQL, $conexion) or die(mysql_error());
+
+
+
+//Consulta para ver el post
+mysql_select_db($database_conexion, $conexion);  //Consulta para ver el post
 $query_DatosPost = sprintf("SELECT * FROM z_posts WHERE id=%s", $iddelpost, "int");
 $DatosPost = mysql_query($query_DatosPost, $conexion) or die(mysql_error());
 $row_DatosPost = mysql_fetch_assoc($DatosPost);
@@ -40,6 +51,7 @@ $totalRows_DatosPost = mysql_num_rows($DatosPost);
       <span class="in_txt"><img class="h_img" src="<?php echo $urlWeb ?>img/category.png" width="14" height="14" /><a href="page/categoria.php">Categoria</a></span>
       <span class="in_txt"><img class="h_img" src="<?php echo $urlWeb ?>img/author.png" width="14" height="14" /><a href="user/usuario.php"><?php echo nombre($row_DatosPost['autor']) ?></a></span>
       <span class="in_txt"><img class="h_img" src="<?php echo $urlWeb ?>img/permalink.png" width="14" height="14" /><a href="ver_post.php">Enlace</a></span>
+      <span class="in_txt">Visitas: <?php echo $row_DatosPost['visitas'] ?></span>
     </div>
 </div>
   </div>

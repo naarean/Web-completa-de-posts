@@ -30,6 +30,7 @@ do { ?>
       <span class="in_txt"><img class="h_img" src="<?php echo $urlWeb ?>img/category.png" width="14" height="14" /><a href="page/categoria.php">Categoria</a></span>
       <span class="in_txt"><img class="h_img" src="<?php echo $urlWeb ?>img/author.png" width="14" height="14" /><a href="user/usuario.php"><?php echo nombre($row_DatosListado['autor']); ?></a></span>
       <span class="in_txt"><img class="h_img" src="<?php echo $urlWeb ?>img/permalink.png" width="14" height="14" /><a href="ver_post.php">Enlace</a></span>
+      <span class="in_txt">Visitas: <?php echo $row_DatosListado['visitas'] ?></span>
     </div>
   </div>
   <?php } while ($row_DatosListado = mysql_fetch_assoc($DatosListado)); 
