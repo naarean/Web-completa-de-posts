@@ -1,8 +1,8 @@
 <div id="menu">
-    <div id="item_me">Inicio</div>
+    <div id="item_me"><a href="<?php echo $urlWeb ?>">Inicio</a></div>
     <div id="item_me">Staff</div>
     <div id="item_me">Tops <img class="arrow" src="<?php echo $urlWeb ?>img/arrows-down.png" width="9" height="5" /></div>
-    <div id="item_me">Crear post</div>
+    <div id="item_me"><a href="<?php echo $urlWeb ?>agregar-post.php">Crear post</a></div>
 
 	<?php if (isset($_SESSION['MM_Id']))  //si la sesión está iniciada, menu privado
 		{ ?>  

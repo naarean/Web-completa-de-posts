@@ -30,6 +30,7 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
 <title>Pagina web php, ajax y jquery</title>
 <link rel="shortcut icon" type="image/x-icon" href="img/favicon.ico">
 <link rel="stylesheet" type="text/css" href="css/estilos.css"/>
+<script src="inc/ckeditor/ckeditor.js"></script>
 <script src="jquery.min.js"></script>
 <script src="js.js"></script>
 <!-- <link href='http://fonts.googleapis.com/css?family=Istok+Web:400,700' rel='stylesheet' type='text/css'> -->
@@ -51,11 +52,11 @@ if ((isset($_POST["MM_insert"])) && ($_POST["MM_insert"] == "form1")) {
         <table align="center">
           <tr valign="baseline">
             <td nowrap="nowrap" align="right">Titulo:</td>
-            <td><input type="text" name="titulo" value="" size="32" /></td>
+            <td><input type="text" name="titulo" value="" size="52" /></td>
           </tr>
           <tr valign="baseline">
             <td nowrap="nowrap" align="right" valign="top">Contenido:</td>
-            <td><textarea name="contenido" cols="50" rows="5"></textarea></td>
+            <td><textarea name="contenido" class="ckeditor"></textarea></td>
           </tr>
           <tr valign="baseline">
             <td nowrap="nowrap" align="right">&nbsp;</td>
